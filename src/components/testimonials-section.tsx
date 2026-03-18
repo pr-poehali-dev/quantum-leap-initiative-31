@@ -1,27 +1,27 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 
 const testimonials = [
   {
-    name: "Елена Родригес",
-    role: "Директор по нейронауке, Quantum Dynamics",
-    avatar: "/professional-woman-scientist.png",
+    name: "Алексей Кузнецов",
+    role: "Директор по маркетингу, торговая сеть «Столица»",
+    initials: "АК",
     content:
-      "SynapseAI изменил наш подход к нейрореабилитации. Результаты пациентов улучшились на 340% после внедрения.",
+      "Участие в городских мероприятиях даёт нам живой контакт с аудиторией, который не заменит ни один онлайн-канал. Это реальные люди, реальные эмоции и запоминающийся бренд.",
   },
   {
-    name: "Маркус Уильямс",
-    role: "Руководитель исследований, Stellar Analytics",
-    avatar: "/cybersecurity-expert-man.jpg",
+    name: "Марина Ефимова",
+    role: "Руководитель отдела PR, Мордовский банк",
+    initials: "МЕ",
     content:
-      "Точность и протоколы безопасности не имеют аналогов. Мы значительно ускорили клинические испытания с платформой SynapseAI.",
+      "Спонсорство городских событий — это инвестиция в доверие. Когда бренд ассоциируется с чем-то позитивным для города, лояльность аудитории растёт органически.",
   },
   {
-    name: "Анна Ковальски",
-    role: "Вице-президент по разработке, Nova Industries",
-    avatar: "/asian-woman-tech-developer.jpg",
+    name: "Дмитрий Панков",
+    role: "Владелец сети салонов красоты «Стиль»",
+    initials: "ДП",
     content:
-      "Интеграция прошла безупречно. Адаптивные алгоритмы понимают намерения пользователя лучше любой системы, что мы тестировали.",
+      "После партнёрства с подобным конкурсом мы получили поток новых клиентов и отличный контент для социальных сетей. Это работает лучше, чем таргетированная реклама.",
   },
 ]
 
@@ -30,9 +30,9 @@ export function TestimonialsSection() {
     <section className="py-24 px-6 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-card-foreground mb-4 font-sans">Нам доверяют лидеры</h2>
+          <h2 className="text-4xl font-bold text-card-foreground mb-4 font-sans">Говорят партнёры</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Что говорят лидеры индустрии о нашей революционной технологии
+            Что говорят бренды, которые делают ставку на городские события
           </p>
         </div>
 
@@ -43,12 +43,8 @@ export function TestimonialsSection() {
                 <p className="text-card-foreground mb-6 leading-relaxed italic">"{testimonial.content}"</p>
                 <div className="flex items-center gap-4">
                   <Avatar>
-                    <AvatarImage src={testimonial.avatar || "/placeholder.svg"} alt={testimonial.name} />
-                    <AvatarFallback>
-                      {testimonial.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
+                    <AvatarFallback className="bg-red-500/20 text-red-400 font-bold">
+                      {testimonial.initials}
                     </AvatarFallback>
                   </Avatar>
                   <div>
